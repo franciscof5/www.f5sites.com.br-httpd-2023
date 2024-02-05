@@ -78,12 +78,12 @@
                 <div class="collapse navbar-collapse navbar-right" id="mainmenu">
                     <ul class="nav navbar-nav">
                         <li><a href="#home">Home</a></li>
+                        <li><a href="#blog">Blog</a></li>
                         <!--li><a href="#work">Work</a></li-->
                         <li><a href="#feature">Funcionalidades</a></li>
                         <li><a href="#team">Time</a></li>
                         <li><a href="#client">Clientes</a></li>
                         <li><a href="#price">Preços</a></li>
-                        <!--li><a href="#blog">Blog</a></li-->
                         <li><a href="#contact">Contato</a></li>
                     </ul>
                 </div>
@@ -99,9 +99,9 @@
                     <div class="space-100"></div>
                     <h1>Criamos sites e aplicativos<br />desde 2005</h1>
                     <div class="space-10"></div>
-                    <p>Fazer um aplicativo, site e sistema para gerenciar e promover seu negócio é a chave para seu sucesso. Com a digitalização de todas as áreas da economia estamos todos conectados, ignorar isso é deixar espaço para a concorrência ocupar e ganhar em produtividades e faturamento. Vamos conversar sobre oportunidades para digitalizar seu negócio?</p>
+                    <p style="font-size: 18px;">Fazer um aplicativo, site e sistema para gerenciar e promover seu negócio é a chave para seu sucesso. Com a digitalização de todas as áreas da economia estamos todos conectados, ignorar isso é deixar espaço para a concorrência ocupar e ganhar em produtividades e faturamento. Vamos conversar sobre oportunidades para digitalizar seu negócio?</p>
                     <div class="space-50"></div>
-                    <a href="https://www.youtube.com/watch?v=_MpF827Isg4" class="btn btn-icon video-popup"><span class="ti-control-play"></span>Ver vídeo</a>
+                    <a href="https://www.youtube.com/watch?v=_MpF827Isg4" class="btn btn-icon video-popup btn-info"><span class="ti-control-play"></span>Ver vídeo</a>
                 </div>
                 <div class="hidden-xs hidden-sm col-md-4">
                     <div class="home_screen_slide">
@@ -138,18 +138,18 @@
                 </div>
                 <div class="col-xs-12 col-md-4 wow fadeInUp" data-wow-delay="0.4s">
                     <div class="well well-hover text-center">
-                        <p class="md-icon" style="font-size: 50px;"><span class="ti-layout-width-default"></span></p>
+                        <p class="md-icon" style="font-size: 50px;"><span class="ti-mobile"></span></p>
                         <div class="space-2"></div>
-                        <h5 class="text-uppercase" style="font-size: 22px;">Angular</h5>
-                        <p>Um framework completo para a criação de aplicações web modernas e fáceis de usar, numa camada separada do WordPress.</p>
+                        <h5 class="text-uppercase" style="font-size: 22px;">React</h5>
+                        <p>Um framework completo para a criação de aplicações web modernas e fáceis de usar, integrado com APIs externar e WordPress.</p>
                     </div>
                 </div>
                 <div class="col-xs-12 col-md-4 wow fadeInUp" data-wow-delay="0.6s">
                     <div class="well well-hover text-center">
-                        <p class="md-icon" style="font-size: 50px;"><span class="ti-mobile"></span></p>
+                        <p class="md-icon" style="font-size: 50px;"><span class="ti-cloud-up"></span></p>
                         <div class="space-2"></div>
-                        <h5 class="text-uppercase" style="font-size: 22px;">Ionic</h5>
-                        <p>Transforma suas aplicações em PWA e aplicativos nativos Android e iOS, uma base de código para web e mobile.</p>
+                        <h5 class="text-uppercase" style="font-size: 22px;">Docker</h5>
+                        <p>Soluções para colocar seu site e aplicativo em produção dentro de qualquer infraestrutura de cloud.</p>
                     </div>
                 </div>
             </div>
@@ -792,18 +792,19 @@
         <div class="space-80"></div>
     </section>
     < !--Download-Section/ -->
-    <!--Blog-Section- ->
+    <Blog-Section>
     <section id="blog">
         <div class="space-80"></div>
         <div class="container">
             <div class="row wow fadeInUp">
                 <div class="col-xs-12 col-md-6 col-md-offset-3 text-center">
-                    <h3 class="text-uppercase">LATEST FROM BLOG</h3>
+                    <h3 class="text-uppercase">Blog da F5 Sites <script>jQuery(this).append("ASDASDA")</script></h3>
                     <p>Lorem ipsum madolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor coli incididunt ut labore Lorem ipsum madolor sit amet.</p>
                 </div>
             </div>
             <div class="space-60"></div>
-            <div class="row">
+            <div class="row" id="contem-blog">
+                
                 <div class="col-xs-12 col-sm-6 col-md-4 wow fadeInUp" data-wow-delay="0.2s">
                     <div class="panel text-center single-blog">
                         <img src="images/blog/blog1.jpg" class="img-full" alt="">
@@ -868,7 +869,7 @@
             </div>
         </div>
     </section>
-    <!- -Blog-Section/-->
+    <!--Blog-Section/-->
     <hr>
     <!--instagram section-->
     <div class="container">
@@ -1009,8 +1010,8 @@
             <div class="space-20"></div>
         </div>
     </footer>
-    <!- - Footer-area-->
-
+    <!-- Footer-area-->
+    
     <!--Vendor JS-->
     <script src="js/vendor/jquery-1.12.4.min.js"></script>
     <script src="js/vendor/bootstrap.min.js"></script>
@@ -1029,6 +1030,39 @@
     <!--Maps JS-->
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBTS_KEDfHXYBslFTI_qPJIybDP3eceE-A&sensor=false"></script>
     <script src="js/maps.js"></script>
+
+    <script>
+        $(function() {
+            var RSS_URL = "https://conteudo.franciscomatelli.com.br/feed/";
+            fetch(RSS_URL)
+            .then(response => response.text())
+            .then(str => new window.DOMParser().parseFromString(str, "text/xml"))
+            .then(data => {
+                console.log(data);
+                const items = data.querySelectorAll("item");
+                let html = ``;
+                $("#contem-blog").html("carregando notícias...");
+                items.forEach(el => {
+                    $("#contem-blog").append("<h1>dasdas123</h1>");
+                
+                // html += `
+                //     <article>
+                //     <img src="${el.querySelector("link").innerHTML}/image/large.png" alt="">
+                //     <h2>
+                //         <a href="${el.querySelector("link").innerHTML}" target="_blank" rel="noopener">
+                //         ${el.querySelector("title").innerHTML}
+                //         </a>
+                //     </h2>
+                //     </article>
+                // `;
+                // });
+                // document.body.insertAdjacentHTML("beforeend", html);
+                 });
+
+            })
+        })
+        
+    </script>
 
 <!-- Start of HubSpot Embed Code -->
 <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/23702982.js"></script>
